@@ -37,3 +37,6 @@ class DetailViewModel(
     }
 }
 
+data class DetailSiswaUiState(
+    val detailSiswa: DetailsSiswa = DetailsSiswa()
+)

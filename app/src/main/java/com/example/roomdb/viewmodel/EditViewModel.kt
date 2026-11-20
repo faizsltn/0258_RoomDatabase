@@ -37,3 +37,16 @@ class EditViewModel(
             isEntryValid = validasiInput(detailsSiswa)
         )
     }
+
+    private fun validasiInput(uiState: DetailsSiswa = uiStateSiswa.detailsSiswa): Boolean {
+        return with(uiState) {
+            nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
+        }
+    }
+
+    suspend fun updateSiswa() {
+        if (validasiInput()) {
+            repositoriSiswa.updateSiswa(uiStateSiswa.detailsSiswa.toSiswa())
+        }
+    }
+}

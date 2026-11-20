@@ -27,3 +27,13 @@ class DetailViewModel(
             started = SharingStarted.WhileSubscribed(stopTimeoutMillis = TIMEOUT_MILLIS),
             initialValue = DetailSiswaUiState()
         )
+
+    suspend fun deleteSiswa() {
+        repositoriSiswa.deleteSiswa(uiState.value.detailSiswa.toSiswa())
+    }
+
+    companion object {
+        private const val TIMEOUT_MILLIS = 5_000L
+    }
+}
+
